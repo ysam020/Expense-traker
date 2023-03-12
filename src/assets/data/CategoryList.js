@@ -1,0 +1,15 @@
+export const categoryList = [
+  { id: 1, value: "Food & Dining" },
+  { id: 2, value: "Shopping" },
+  { id: 3, value: "Travelling" },
+  { id: 4, value: "Entertainment" },
+  { id: 5, value: "Medical" },
+  { id: 6, value: "Personal Care" },
+  { id: 7, value: "Education" },
+  { id: 8, value: "Bill and Utilities" },
+  { id: 9, value: "Investments" },
+  { id: 10, value: "Rent" },
+  { id: 11, value: "Taxes" },
+  { id: 12, value: "Insurance" },
+  { id: 13, value: "Gifts and Donations" },
+];

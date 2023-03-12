@@ -1,38 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
 .App {
-  text-align: center;
+  font-family: poppins;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Landing page navbar */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(249, 250, 251, 0.3);
+  backdrop-filter: blur(6px) !important;
+  z-index: 9999;
+  left: 0;
+  right: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar .navbar-left,
+.navbar .navbar-right {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar .navbar-left h3 {
+  margin-left: 20px;
+  align-self: center;
+  margin-bottom: 0;
+  overflow: hidden !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar .navbar-right h4 {
+  margin-right: 30px;
+  margin-bottom: 0;
+}
+
+.navbar .navbar-right button {
+  border: none;
+  outline: none;
+  background-image: linear-gradient(90deg, #723efe, #349bff);
+  padding: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 20%;
+  border-radius: 3px;
+  box-shadow: 2px 2px 50px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide arrows from input type number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* FAB */
+.fab {
+  box-shadow: none !important;
+  margin: 20px 0 !important;
+  background-image: linear-gradient(90deg, #723efe, #349bff) !important;
+}
+
+.modal-form-btn {
+  border: none;
+  outline: none;
+  background-image: linear-gradient(90deg, #723efe, #349bff);
+  padding: 10px;
+  color: #fff !important;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 2px 2px 50px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+/* Table */
+.table {
+  background-color: #fff !important;
+  border: none !important;
+}
+
+.table .progress {
+  width: 100%;
+  height: 25px;
+  --bs-progress-bar-bg: #028ff9;
 }

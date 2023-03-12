@@ -1,0 +1,88 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: scroll;
+  position: fixed;
+}
+
+/* Hide sidebar scrollbar */
+.MuiList-root.MuiList-padding.css-h4y409-MuiList-root {
+  -ms-overflow-style: none !important; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+}
+
+.MuiList-root.MuiList-padding.css-h4y409-MuiList-root::-webkit-scrollbar {
+  display: none !important;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  padding: 50px 10px;
+}
+
+.sidebar-list {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-listItem {
+  height: 40px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0 10px;
+  margin: 5px 0;
+  width: 180px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-link.active,
+.sidebar-link:hover {
+  color: #fff !important;
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-radius: 8px;
+  border-left: 5px solid #7637fe;
+  font-weight: 700;
+}
+
+/* Sidebar icons */
+.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  color: #fff;
+}
+
+/* Sidebar icons active */
+.sidebar-link.active
+  .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  color: #7637fe;
+}
+
+.sidebar-link:hover {
+  color: #fff !important;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.MuiButtonBase-root.MuiListItemButton-root.MuiListItemButton-gutters.MuiListItemButton-root.MuiListItemButton-gutters.appbar-links.css-2j3qvi-MuiButtonBase-root-MuiListItemButton-root {
+  padding: 5px 0 !important;
+}
+
+.sidebar-list-text {
+  margin-bottom: 0 !important;
+}
+
+/* Logout button */
+.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.sidebar-listItem.css-bfxr4y-MuiListItem-root {
+  padding: 0 !important;
+  border-radius: 8px !important;
+  margin-top: 20px;
+}
