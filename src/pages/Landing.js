@@ -4,7 +4,6 @@ import "../styles/landing.css";
 import Lottie from "lottie-react";
 import landingBannerImg from "../assets/lottie-files/landing-banner-img";
 import { Navbar } from "react-bootstrap";
-
 import { Button } from "@mui/material";
 
 function Landing(props) {

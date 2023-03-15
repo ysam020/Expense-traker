@@ -119,6 +119,17 @@ function DatewiseColumnChart() {
       },
       title: {
         text: "Transactions this month",
+        align: "left",
+        floating: true,
+        margin: 40,
+        style: {
+          fontSize: "1rem",
+          fontWeight: "500",
+          fontFamily: "poppins",
+          color: "#212121",
+          lineHeight: "1.2",
+          marginBottom: "50px !important",
+        },
       },
       tooltip: {
         y: {

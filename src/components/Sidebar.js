@@ -41,9 +41,10 @@ function Sidebar() {
                 <ListItemButton
                   sx={{ textAlign: "left" }}
                   className="appbar-links"
+                  style={{ padding: "5px 0" }}
                 >
                   <div style={{ display: "flex", alignItems: "center" }}>
-                    <IconButton>{icon}</IconButton>
+                    <IconButton sx={{ color: "#ffffff9f" }}>{icon}</IconButton>
                     <p className="sidebar-list-text">{name}</p>
                   </div>
                 </ListItemButton>
@@ -51,15 +52,24 @@ function Sidebar() {
             </ListItem>
           );
         })}
-        <ListItem sx={{ textAlign: "left" }} className="sidebar-listItem">
+        <ListItem
+          sx={{ textAlign: "left" }}
+          className="sidebar-listItem"
+          style={{
+            padding: "5px 0",
+          }}
+        >
           <div className="sidebar-link">
             <ListItemButton
               sx={{ textAlign: "left" }}
               className="appbar-links"
               onClick={() => logout()}
+              style={{
+                padding: "5px 0",
+              }}
             >
               <div style={{ display: "flex", alignItems: "center" }}>
-                <IconButton>
+                <IconButton sx={{ color: "#ffffff9f" }}>
                   <LogoutRoundedIcon />
                 </IconButton>
                 <p className="sidebar-list-text">Logout</p>

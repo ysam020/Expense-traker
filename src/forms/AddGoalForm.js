@@ -8,6 +8,7 @@ import db from "../firebase/firebase";
 import cryptoRandomString from "crypto-random-string";
 import { UserContext } from "../context/Context";
 import { goalsList } from "../assets/data/GoalsList";
+import firebase from "firebase/app";
 
 const AddGoalForm = (props) => {
   const user = useContext(UserContext);
@@ -48,6 +49,14 @@ const AddGoalForm = (props) => {
           date: new Date(values.date),
           note: values.note,
           achieved: values.alreadySaved > values.target ? true : false,
+        });
+
+      db.collection("activities")
+        .doc(user.email)
+        .collection("activities")
+        .add({
+          title: `You added a goal: ${values.title}`,
+          date: firebase.firestore.Timestamp.now(),
         });
 
       props.handleClose();

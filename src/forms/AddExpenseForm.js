@@ -8,6 +8,7 @@ import db from "../firebase/firebase";
 import cryptoRandomString from "crypto-random-string";
 import { UserContext } from "../context/Context";
 import { categoryList } from "../assets/data/CategoryList";
+import firebase from "firebase/app";
 
 const AddExpenseForm = (props) => {
   const user = useContext(UserContext);
@@ -44,6 +45,14 @@ const AddExpenseForm = (props) => {
           amount: values.amount,
           type: values.type.toLowerCase(),
           date: new Date(values.date),
+        });
+
+      db.collection("activities")
+        .doc(user.email)
+        .collection("activities")
+        .add({
+          title: `You added a transaction: ${values.title}`,
+          date: firebase.firestore.Timestamp.now(),
         });
 
       props.handleClose();

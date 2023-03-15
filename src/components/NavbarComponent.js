@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -11,19 +11,13 @@ import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard";
 import Transactions from "./Transactions";
 import { Routes, Route } from "react-router-dom";
-import Analysis from "./Analysis";
-import Accounts from "./Accounts";
-import Settings from "./Settings";
-import Profile from "./Profile";
-import { UserContext } from "../context/Context";
-import Budgets from "./Budgets";
 import Goals from "./Goals";
 import sidebarBg from "../assets/images/sidebar-bg.png";
+import Redirect from "./Redirect";
 
 const drawerWidth = 250;
 
 function ResponsiveDrawer(props) {
-  const user = useContext(UserContext);
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -153,18 +147,9 @@ function ResponsiveDrawer(props) {
         <Toolbar />
 
         <Routes>
+          <Route exact path="/" element={<Redirect />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/transactions" element={<Transactions />} />
-          <Route
-            exact
-            path="/accounts"
-            element={<Accounts user={user} />}
-          ></Route>
-
-          <Route exact path="/analysis" element={<Analysis />} />
-          <Route exact path="/settings" element={<Settings />} />
-          <Route exact path="/profile" element={<Profile />} />
-          <Route exact path="/budgets" element={<Budgets />} />
           <Route exact path="/goals" element={<Goals />} />
         </Routes>
       </Box>

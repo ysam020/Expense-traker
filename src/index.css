@@ -4,6 +4,12 @@
   text-decoration: none !important;
   overflow-x: hidden;
   box-sizing: border-box !important;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
 
 body {

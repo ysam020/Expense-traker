@@ -92,6 +92,16 @@ function Savings() {
       title: {
         text: "Savings",
         align: "left",
+        margin: 40,
+        floating: true,
+        style: {
+          fontSize: "1rem",
+          fontWeight: "500",
+          fontFamily: "poppins",
+          color: "#212121",
+          lineHeight: "1.2",
+          marginBottom: "50px !important",
+        },
       },
       grid: {
         borderColor: "#e7e7e7",

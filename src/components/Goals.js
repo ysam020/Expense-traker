@@ -10,8 +10,18 @@ import { DataGrid } from "@mui/x-data-grid";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import { IconButton } from "@mui/material";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    icon: {
+      color: "#F15C6D !important",
+    },
+  })
+);
 
 function Goals() {
+  const classes = useStyles();
   const user = useContext(UserContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -82,9 +92,21 @@ function Goals() {
         ).toFixed(2);
 
         if (params.row.alreadySaved > params.row.target) {
-          return <ProgressBar now={percentage} label="100%" />;
+          return (
+            <>
+              <ProgressBar now={percentage} label="100%" />
+              <p style={{ marginBottom: 0, marginLeft: "5px" }}>100%</p>
+            </>
+          );
         } else {
-          return <ProgressBar now={percentage} label={`${percentage}%`} />;
+          return (
+            <>
+              <ProgressBar now={percentage} label={percentage} />
+              <p
+                style={{ marginBottom: 0, marginLeft: "5px" }}
+              >{`${percentage}%`}</p>
+            </>
+          );
         }
       },
     },
@@ -129,9 +151,12 @@ function Goals() {
             className="d-flex justify-content-between align-items-center"
             style={{ cursor: "pointer" }}
           >
-            <Tooltip title="delete">
+            <Tooltip title="Delete">
               <IconButton onClick={deleteData}>
-                <DeleteRoundedIcon index={params.row.id} />
+                <DeleteRoundedIcon
+                  index={params.row.id}
+                  className={classes.icon}
+                />
               </IconButton>
             </Tooltip>
           </div>

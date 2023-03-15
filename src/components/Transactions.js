@@ -9,13 +9,24 @@ import db from "../firebase/firebase";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import { IconButton } from "@mui/material";
 import { UserContext } from "../context/Context";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    icon: {
+      color: "#F15C6D !important",
+    },
+  })
+);
 
 export default function Transactions() {
+  const classes = useStyles();
   const user = useContext(UserContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [rows, setRows] = useState([]);
+
   const getExpenses = useCallback(() => {
     db.collection("transactions")
       .doc(user.email)
@@ -159,7 +170,10 @@ export default function Transactions() {
           >
             <Tooltip title="Delete">
               <IconButton onClick={deleteData}>
-                <DeleteRoundedIcon index={params.row.id} />
+                <DeleteRoundedIcon
+                  index={params.row.id}
+                  className={classes.icon}
+                />
               </IconButton>
             </Tooltip>
           </div>

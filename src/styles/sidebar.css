@@ -55,34 +55,12 @@
   font-weight: 700;
 }
 
-/* Sidebar icons */
-.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
-  color: #fff;
-}
-
-/* Sidebar icons active */
-.sidebar-link.active
-  .MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
-  color: #7637fe;
-}
-
 .sidebar-link:hover {
   color: #fff !important;
   border-radius: 8px;
   background-color: rgba(255, 255, 255, 0.04) !important;
 }
 
-.MuiButtonBase-root.MuiListItemButton-root.MuiListItemButton-gutters.MuiListItemButton-root.MuiListItemButton-gutters.appbar-links.css-2j3qvi-MuiButtonBase-root-MuiListItemButton-root {
-  padding: 5px 0 !important;
-}
-
 .sidebar-list-text {
   margin-bottom: 0 !important;
-}
-
-/* Logout button */
-.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding.sidebar-listItem.css-bfxr4y-MuiListItem-root {
-  padding: 0 !important;
-  border-radius: 8px !important;
-  margin-top: 20px;
 }

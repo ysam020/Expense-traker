@@ -63,16 +63,28 @@ function CategorywiseDonutChart() {
         formatter: function (val, opts) {
           return val + " - " + opts.w.globals.series[opts.seriesIndex];
         },
+        position: "right",
       },
       title: {
         text: "Category-wise transactions",
+        align: "left",
+        margin: 40,
+        floating: true,
+        style: {
+          fontSize: "1rem",
+          fontWeight: "500",
+          fontFamily: "poppins",
+          color: "#212121",
+          lineHeight: "1.2",
+          marginBottom: "50px !important",
+        },
       },
       responsive: [
         {
-          breakpoint: 480,
+          breakpoint: 992,
           options: {
             chart: {
-              width: 200,
+              width: "100%",
             },
             legend: {
               position: "bottom",
