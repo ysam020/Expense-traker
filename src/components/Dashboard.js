@@ -7,9 +7,9 @@ import ExpenseTrend from "./charts/ExpenseTrend";
 import Savings from "./charts/Savings";
 import MonthwiseColumnChart from "./charts/MonthwiseColumnChart";
 import Activity from "./Activity";
-import db from "../firebase/firebase";
 import { UserContext } from "../context/Context";
 import CircularProgress from "@mui/material/CircularProgress";
+import { ifTransactionData } from "../utils/ifTransactionData";
 
 function Dashboard() {
   const user = useContext(UserContext);
@@ -18,13 +18,7 @@ function Dashboard() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    db.collection("transactions")
-      .doc(user.email)
-      .collection("transactions")
-      .onSnapshot((snapshot) => {
-        setData(snapshot.docs);
-        setLoading(false);
-      });
+    ifTransactionData(user, setData, setLoading);
     // eslint-disable-next-line
   }, []);
 

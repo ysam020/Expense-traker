@@ -1,12 +1,10 @@
-export const goalsColumnData = (
-  ProgressBar,
-  user,
-  db,
-  Tooltip,
-  IconButton,
-  DeleteRoundedIcon,
-  classes
-) => {
+import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import { IconButton } from "@mui/material";
+import { Tooltip } from "@mui/material";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import db from "../../firebase/firebase";
+
+export const goalsColumnData = (user) => {
   return [
     {
       field: "id",
@@ -116,10 +114,7 @@ export const goalsColumnData = (
           >
             <Tooltip title="Delete">
               <IconButton onClick={deleteData}>
-                <DeleteRoundedIcon
-                  index={params.row.id}
-                  className={classes.icon}
-                />
+                <DeleteRoundedIcon index={params.row.id} color="primary" />
               </IconButton>
             </Tooltip>
           </div>

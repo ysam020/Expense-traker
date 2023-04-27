@@ -5,7 +5,8 @@ function Redirect() {
   const navigate = useNavigate();
   useEffect(() => {
     navigate("/dashboard");
-  });
+    // eslint-disable-next-line
+  }, []);
 }
 
 export default Redirect;

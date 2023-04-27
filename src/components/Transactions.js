@@ -5,24 +5,11 @@ import "../styles/transactions.css";
 import ExpensesModal from "./modals/ExpensesModal";
 import { useContext, useEffect, useState } from "react";
 import { Tooltip } from "@mui/material";
-import db from "../firebase/firebase";
 import { expensesColumnData } from "../assets/data/ExpensesColumnData";
 import { UserContext } from "../context/Context";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { IconButton } from "@mui/material";
-import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import { getExpenses } from "../utils/getExpensesFromTransaction";
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    icon: {
-      color: "#F15C6D !important",
-    },
-  })
-);
-
 export default function Transactions() {
-  const classes = useStyles();
   const user = useContext(UserContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -48,14 +35,7 @@ export default function Transactions() {
           className="table expense-table"
           headerAlign="center"
           rows={rows}
-          columns={expensesColumnData(
-            user,
-            db,
-            Tooltip,
-            IconButton,
-            DeleteRoundedIcon,
-            classes
-          )}
+          columns={expensesColumnData(user)}
           pageSize={10}
           rowsPerPageOptions={[10]}
           rowHeight={50}

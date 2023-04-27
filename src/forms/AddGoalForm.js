@@ -3,26 +3,16 @@ import { Button } from "@mui/material";
 import { useFormik } from "formik";
 import { TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import * as yup from "yup";
-import db from "../firebase/firebase";
 import cryptoRandomString from "crypto-random-string";
 import { UserContext } from "../context/Context";
 import { goalsList } from "../assets/data/GoalsList";
-import firebase from "firebase/app";
+import { addGoals } from "../utils/addGoals";
+import { goalsSchema } from "../schemas/goalsSchema";
 
 const AddGoalForm = (props) => {
   const user = useContext(UserContext);
 
   const randomId = cryptoRandomString({ length: 8, type: "numeric" });
-
-  const validationSchema = yup.object({
-    title: yup.string("Enter a title").required("Title is required"),
-    target: yup.string("Enter target").required("Target is required"),
-    alreadySaved: yup
-      .string("Enter already saved")
-      .required("Already saved is required"),
-    date: yup.string("Enter target date").required("Target date is required"),
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -35,31 +25,10 @@ const AddGoalForm = (props) => {
       achieved: false,
     },
 
-    validationSchema: validationSchema,
+    validationSchema: goalsSchema,
 
     onSubmit: (values) => {
-      db.collection("goals")
-        .doc(user.email)
-        .collection("goals")
-        .add({
-          id: randomId,
-          title: values.title,
-          target: values.target,
-          alreadySaved: values.alreadySaved,
-          date: new Date(values.date),
-          note: values.note,
-          achieved: values.alreadySaved > values.target ? true : false,
-        });
-
-      db.collection("activities")
-        .doc(user.email)
-        .collection("activities")
-        .add({
-          title: `You added a goal: ${values.title}`,
-          date: firebase.firestore.Timestamp.now(),
-        });
-
-      props.handleClose();
+      addGoals(user, values, randomId, props.handleClose);
     },
   });
 

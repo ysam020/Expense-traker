@@ -4,21 +4,10 @@ import "../styles/sidebar.css";
 import { sidebarData } from "../assets/data/SidebarData";
 import { IconButton, List, ListItem, ListItemButton } from "@mui/material";
 import { Avatar } from "@mui/material";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { UserContext, LogoutContext } from "../context/Context";
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    icon: {
-      width: "100px !important",
-      height: "100px !important",
-    },
-  })
-);
-
 function Sidebar() {
-  const classes = useStyles();
   const user = useContext(UserContext);
   const logout = useContext(LogoutContext);
 
@@ -26,7 +15,10 @@ function Sidebar() {
     <div className="sidebar">
       <List>
         <div className="avatar">
-          <Avatar src={user.photoURL} className={classes.icon} />
+          <Avatar
+            src={user.photoURL}
+            sx={{ width: "100px !important", height: "100px !important" }}
+          />
         </div>
         {sidebarData.map((val) => {
           const { id, icon, name, url } = val;

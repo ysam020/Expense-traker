@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,25 +13,27 @@ import { Routes, Route } from "react-router-dom";
 import Goals from "./Goals";
 import sidebarBg from "../assets/images/sidebar-bg.png";
 import Redirect from "./Redirect";
+import { SwipeableDrawer } from "@mui/material";
 
 const drawerWidth = 250;
+const drawerPaperStyles = {
+  backgroundColor: "#252e3e",
+  backgroundImage: `url(${sidebarBg})`,
+  backgroundAttachment: "fixed",
+  backgroundPosition: "left 0 bottom 0 !important",
+  backgroundSize: "250px !important",
+  backgroundRepeat: "no-repeat",
+  padding: "0 20px",
+};
+const drawerStyles = {
+  "& .MuiDrawer-paper": {
+    boxSizing: "border-box",
+    width: drawerWidth,
+  },
+};
 
-function ResponsiveDrawer(props) {
-  const { window } = props;
+function ResponsiveDrawer() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <div>
-      <Sidebar />
-    </div>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -52,7 +53,7 @@ function ResponsiveDrawer(props) {
             color="inherit"
             aria-label="open drawer"
             edge="start"
-            onClick={handleDrawerToggle}
+            onClick={() => setMobileOpen(!mobileOpen)}
             sx={{ mr: 2, display: { lg: "none" } }}
           >
             <MenuIcon sx={{ color: "#000" }} />
@@ -74,60 +75,35 @@ function ResponsiveDrawer(props) {
         aria-label="mailbox folders"
       >
         {/* Drawer mobile */}
-        <Drawer
+        <SwipeableDrawer
           PaperProps={{
-            sx: {
-              backgroundColor: "#252e3e",
-              backgroundImage: `url(${sidebarBg})`,
-              backgroundAttachment: "fixed",
-              backgroundPosition: "left 0 bottom 0 !important",
-              backgroundSize: "250px !important",
-              backgroundRepeat: "no-repeat",
-              padding: "0 20px",
-            },
+            sx: drawerPaperStyles,
           }}
-          container={container}
           variant="temporary"
           open={mobileOpen}
-          onClose={handleDrawerToggle}
+          onOpen={() => setMobileOpen(!mobileOpen)}
+          onClose={() => setMobileOpen(!mobileOpen)}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
-          sx={{
-            display: { xs: "block", lg: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
+          sx={{ ...drawerStyles, display: { xs: "block", lg: "none" } }}
         >
-          {drawer}
-        </Drawer>
+          <Sidebar />
+        </SwipeableDrawer>
 
         {/* Drawer desktop */}
         <Drawer
           PaperProps={{
-            sx: {
-              backgroundColor: "#252e3e",
-              backgroundImage: `url(${sidebarBg})`,
-              backgroundAttachment: "fixed",
-              backgroundPosition: "left 0 bottom 0 !important",
-              backgroundSize: "250px !important",
-              backgroundRepeat: "no-repeat",
-              padding: "0 20px",
-            },
+            sx: drawerPaperStyles,
           }}
           variant="permanent"
           sx={{
+            ...drawerStyles,
             display: { xs: "none", lg: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
           }}
           open
         >
-          {drawer}
+          <Sidebar />
         </Drawer>
       </Box>
 
@@ -156,9 +132,5 @@ function ResponsiveDrawer(props) {
     </Box>
   );
 }
-
-ResponsiveDrawer.propTypes = {
-  window: PropTypes.func,
-};
 
 export default ResponsiveDrawer;

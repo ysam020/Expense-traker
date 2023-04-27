@@ -3,24 +3,16 @@ import { Button } from "@mui/material";
 import { useFormik } from "formik";
 import { TextField } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import * as yup from "yup";
-import db from "../firebase/firebase";
 import cryptoRandomString from "crypto-random-string";
 import { UserContext } from "../context/Context";
 import { categoryList } from "../assets/data/CategoryList";
-import firebase from "firebase/app";
+import { addExpense } from "../utils/addExpense";
+import { transactionsSchema } from "../schemas/transactionsSchema";
 
 const AddExpenseForm = (props) => {
   const user = useContext(UserContext);
 
   const randomId = cryptoRandomString({ length: 8, type: "numeric" });
-
-  const validationSchema = yup.object({
-    title: yup.string("Enter a title").required("Title is required"),
-    category: yup.string("Enter a category").required("Category is required"),
-    amount: yup.string("Enter amount").required("Amount is required"),
-    date: yup.string("Enter your date").required("Date is required"),
-  });
 
   const formik = useFormik({
     initialValues: {
@@ -32,30 +24,9 @@ const AddExpenseForm = (props) => {
       date: "",
     },
 
-    validationSchema: validationSchema,
+    validationSchema: transactionsSchema,
     onSubmit: (values) => {
-      db.collection("transactions")
-        .doc(user.email)
-        .collection("transactions")
-        .add({
-          id: randomId,
-          title: values.title,
-          category: values.category,
-          description: values.description,
-          amount: values.amount,
-          type: values.type.toLowerCase(),
-          date: new Date(values.date),
-        });
-
-      db.collection("activities")
-        .doc(user.email)
-        .collection("activities")
-        .add({
-          title: `You added a transaction: ${values.title}`,
-          date: firebase.firestore.Timestamp.now(),
-        });
-
-      props.handleClose();
+      addExpense(user, values, randomId, props.handleClose);
     },
   });
 

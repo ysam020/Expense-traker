@@ -8,22 +8,16 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import TimelineOppositeContent, {
   timelineOppositeContentClasses,
 } from "@mui/lab/TimelineOppositeContent";
-import db from "../firebase/firebase";
 import { UserContext } from "../context/Context";
 import firebase from "firebase/app";
+import { getActivitiesData } from "../utils/getActivitiesData";
 
 export default function Activity() {
   const user = useContext(UserContext);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    db.collection("activities")
-      .doc(user.email)
-      .collection("activities")
-      .orderBy("date", "desc")
-      .onSnapshot((snapshot) => {
-        setData(snapshot.docs);
-      });
+    getActivitiesData(user, setData);
     // eslint-disable-next-line
   }, []);
 

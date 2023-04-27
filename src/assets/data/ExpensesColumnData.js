@@ -1,11 +1,9 @@
-export const expensesColumnData = (
-  user,
-  db,
-  Tooltip,
-  IconButton,
-  DeleteRoundedIcon,
-  classes
-) => {
+import { IconButton } from "@mui/material";
+import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
+import { Tooltip } from "@mui/material";
+import db from "../../firebase/firebase";
+
+export const expensesColumnData = (user) => {
   return [
     {
       field: "id",
@@ -133,10 +131,7 @@ export const expensesColumnData = (
           >
             <Tooltip title="Delete">
               <IconButton onClick={deleteData}>
-                <DeleteRoundedIcon
-                  index={params.row.id}
-                  className={classes.icon}
-                />
+                <DeleteRoundedIcon index={params.row.id} color="primary" />
               </IconButton>
             </Tooltip>
           </div>
