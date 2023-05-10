@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import "../../styles/expenses-modal.css";
+import "../../styles/expenses-modal.scss";
 import AddExpenseForm from "../../forms/AddExpenseForm";
 
 const style = {

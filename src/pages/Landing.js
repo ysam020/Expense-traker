@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import "../styles/landing.css";
+import "../styles/landing.scss";
 import Lottie from "lottie-react";
 import landingBannerImg from "../assets/lottie-files/landing-banner-img";
 import { Navbar } from "react-bootstrap";

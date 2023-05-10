@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import GoalsModal from "./modals/GoalsModal";
-import "../styles/goals.css";
+import "../styles/goals.scss";
 import { Tooltip } from "@mui/material";
 import { UserContext } from "../context/Context";
 import { DataGrid } from "@mui/x-data-grid";

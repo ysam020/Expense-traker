@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { useState } from "react";
 import Landing from "./pages/Landing";
 import { Container } from "react-bootstrap";

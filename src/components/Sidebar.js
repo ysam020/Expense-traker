@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import "../styles/sidebar.css";
+import "../styles/sidebar.scss";
 import { sidebarData } from "../assets/data/SidebarData";
 import { IconButton, List, ListItem, ListItemButton } from "@mui/material";
 import { Avatar } from "@mui/material";

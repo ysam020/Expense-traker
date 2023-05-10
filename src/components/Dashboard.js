@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import "../styles/dashboard.css";
+import "../styles/dashboard.scss";
 import DatewiseColumnChart from "./charts/DatewiseColumnChart";
 import CategorywiseDonutChart from "./charts/CategorywiseDonutChart";
 import ExpenseTrend from "./charts/ExpenseTrend";

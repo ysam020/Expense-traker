@@ -18,7 +18,6 @@ function CategorywiseDonutChart() {
 
   return (
     <div>
-      {" "}
       <ReactApexChart
         options={donutState.options}
         series={donutState.series}

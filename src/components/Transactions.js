@@ -1,7 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
-import "../styles/transactions.css";
+import "../styles/transactions.scss";
 import ExpensesModal from "./modals/ExpensesModal";
 import { useContext, useEffect, useState } from "react";
 import { Tooltip } from "@mui/material";
